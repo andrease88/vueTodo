@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>todo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="dist/spectre.min.css">
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script> -->
+</head>
+<body>
+<div id="app">
+  <button class="btn" id="createTodoForm" v-on:click="toggleCreateTodoForm">Skapa Todo</button>
+  <div class="columns" id="todoForm" v-if="isActive">
+      <div class="column col-12">
+          <form action="#forms" id="tForm">
+              <div class="form-group">
+                  <label class="form-label" for="input-example-1">Titel på todo</label>
+                  <input class="form-input" type="text" id="input-one" placeholder="Lägg till todo.." v-model="message" v-on:keydown="checkInput" value="">
+              </div>
+              <div class="form-group">
+                  <select class="form-select col-12" id="input-two">
+                      <option>Välj prioritet</option>
+                      <option>Hög</option>
+                      <option>Medel</option>
+                      <option>Låg</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-example-1">Deadline för todo</label>
+                <input class="form-input" type="date" id="input-three" value="">
+              </div>
+              <div class="form-group">
+                  <label class="form-label" for="input-example-3">Övrig info om todo</label>
+                  <textarea class="form-input" id="input-four" placeholder="Information.." rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-primary" type="submit" v-on:click="submitTodo">Submit</button>
+                  <button class="btn btn-link" type="reset" v-on:click="resetTodoForm">Cancel</button>
+                  <span class="label label-success hide" id="todoCreated">Todo skapad!</span>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<div id="todoList"></div>
+
+
+<!--   <div id="app">
+    <h2>Todos</h2>
+    <ul v-if="showTodos">
+      <li v-for="todo in todos">
+        <todo-component v-bind:todo="todo"></todo-component><button type="button" v-on:click="removeTodo($index)">X</button>
+      </li>
+    </ul>
+    <p v-else >
+      No todos for you today.
+    </p>
+    <p>
+      Showing Todos or not: {{ showTodos }}
+      <input type="checkbox" v-model="showTodos">
+    </p>
+    <p>
+      <input type="text" v-model="todoText" v-on:keyup.esc="clearTodo" v-on:keyup.enter="createTodo">
+    </p>
+  </div> -->
+  <script src="js/vue.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
